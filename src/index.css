@@ -1,3 +1,4 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +6,676 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x:hidden;
+  padding: 0;
 }
-
+html{
+  overflow-x:hidden;
+  scroll-behavior: smooth;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.header {
+  position: relative;
+  z-index: 9999;
+}
+.header .navbar{
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px);
+}
+/* For larger screens */
+.header .brand {
+  font-weight: 900;
+  font-size: 35px;
+}
+
+.header .nav {
+  font-size: 18px;
+  margin-right: 100px;
+  font-weight: 500;
+}
+
+.header .nav-link {
+  transition: all 0.3s ease;
+  padding: 0 18px !important;
+}
+
+.header .nav-link:hover,
+.header .nav-link:active {
+  color: #b575c6 !important;
+}
+.custom-toggler {
+  border: none;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Changing the color of the toggler icon */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 117, 228, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Add hover effect to the toggle button */
+.custom-toggler:hover {
+  background-color: #b575c6;
+  color: white;
+}
+
+/* Media queries for responsiveness */
+
+/* For tablets and smaller devices */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.85); /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Dropdown shadow */
+    transition: all 0.5s ease; /* Smooth transition when opened */
+  }
+
+  /* Center the nav links vertically and apply padding */
+  .header .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header .nav-link {
+    font-size: 18px;
+    padding: 15px 0;
+    text-align: center;
+    color: #fff !important;
+    transition: all 0.3s ease;
+  }
+
+  .header .nav-link:hover {
+    color: #b575c6 !important;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+    border-radius: 5px;
+  }
+}
+
+/* For phones and smaller devices */
+@media (max-width: 768px) {
+  .header .brand {
+    font-size: 24px;
+  }
+
+  .header .nav {
+    font-size: 14px;
+  }
+
+  .header .nav-link {
+    padding: 0 10px !important;
+  }
+}
+
+/* For extra small screens */
+@media (max-width: 576px) {
+  .header .brand {
+    font-size: 20px;
+  }
+
+  .header .nav {
+    font-size: 14px;
+  }
+
+  .header .nav-link {
+    padding: 0 12px !important;
+  }
+}
+
+/* General Hero section styles */
+.hero {
+  background-image: url(./Assets/hero_bg.png);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  color: white !important;
+  padding-top: 12%;
+}
+
+/* Styles for Col1 (main content) */
+.hero .col1 span {
+  color: #b575c6 !important;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.hero .col1 h4 {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.hero .col1 h1 {
+  font-size: 65px;
+  font-weight: 300;
+}
+
+.hero .col1 button:nth-child(1),
+.experience .row button:nth-child(1) {
+  border: none;
+  border-radius: 30px;
+  padding: 20px 30px;
+  width: 250px;
+  background-color: #b575c6 !important;
+  transition: all 0.3s ease;
+}
+
+.hero .col1 button:nth-child(2), 
+.experience .row button:nth-child(2) {
+  border: none;
+  border-radius: 30px;
+  background-color: transparent !important;
+  padding: 20px 30px;
+  width: 260px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.hero .col1 button:nth-child(1):hover,
+.hero .col1 button:nth-child(2):hover,
+.experience .row button:nth-child(1):hover, 
+.experience .row button:nth-child(2):hover {
+  letter-spacing: 1px;
+  word-spacing: 3px;
+}
+
+.hero .col1 p {
+  margin: 30px 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+/* Styles for Col2 (scroll down button) */
+.hero .col2 {
+  justify-content: end;
+  text-align: center;
+  justify-items: end;
+  padding-top: 28%;
+}
+
+.hero .col2 a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px); /* Moves down */
+  }
+  100% {
+    transform: translateY(0); /* Moves back to the original position */
+  }
+}
+
+.scroll-icon {
+  animation: upDown 3s infinite ease-in-out;
+}
+
+
+/* RESPONSIVENESS */
+
+/* For tablets and smaller screens */
+@media (max-width: 992px) {
+  .hero .col1 h4 {
+    font-size: 30px;
+  }
+  
+  
+  .hero .col1 button {
+    width: 220px;
+    padding: 15px 20px;
+  }
+
+  /* Hide the second column (scroll down) */
+  .hero .col2 {
+    display: none; /* Hides the scroll down button on smaller screens */
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 576px) {
+  .hero {
+    padding: 30% 20px 0 20px;
+    height: fit-content;
+    width: 100%;
+  
+  }
+
+ 
+
+  .hero .col1 button {
+    width: 200px;
+    padding: 12px 18px;
+  }
+
+  /* Hide the second column (scroll down) */
+  .hero .col2 {
+    display: none;
+  }
+}
+.about{
+  height: 100vh;
+  width: 100%;
+  background-color: #262124;
+  color: white;
+  padding:50px;
+}
+.about .col1{
+margin-top: 80px;
+}
+.about .col1 h5{
+  font-size: 25px;
+}
+.about .col1 h2{
+  font-size: 50px;
+}
+.about .col1 h2 span{
+  color: #b575c6;
+  font-weight: 900;
+}
+.about .col1 p{
+  font-size: 20px;
+  word-spacing: 2px;
+  text-align: justify;
+}
+.about .col2{
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+  padding: 50px;
+  gap: 10px;
+}
+.about .col2 .innercol2{
+  margin-top:30px ;
+}
+.about .col2 .innercol2 .card, .about .col2 .innercol1 .card{
+  color: white;
+  border: 2px solid #b575c6 !important;
+  background: linear-gradient(rgb(183, 119, 201,0.6),rgb(184, 117, 202,0.3) );
+  width: 250px !important;
+  margin: 8px 0 !important;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.about .col2 .innercol2 .card:hover, .about .col2 .innercol1 .card:hover{
+  background: linear-gradient(rgba(224, 144, 247, 0.6),rgba(92, 57, 102, 0.3) );
+}
+.about .col2 .innercol1 .card .card-text, .about .col2 .innercol2 .card .card-text{
+  font-size: 13px;
+}
+@media (max-width: 576px){
+  .about{
+    height: fit-content;
+    padding: 10px;
+  }
+  .about .col2, .about .col1{
+    display: flex;
+   flex-direction: column;
+    justify-content: center;
+  }
+  .about .col2 .innercol2 .card, .about .col2 .innercol1 .card{
+    width: 100% !important;
+    margin: 8px 0 !important;
+  }
+}
+.experience{
+  height: 100vh;
+  width: 100%;
+  background-color: #262124;
+  color: white;
+  padding-top: 100px;
+}
+.experience .col1{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+.experience .row{
+  text-align: center;
+}
+.experience .row h2{
+  font-size: 50px;
+  font-weight: 900;
+}
+.experience .row h2 span{
+  color: #b575c6;
+}
+
+.experience .col1{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+.experience .col1 .card{
+  background: none;
+  color: white;
+  padding:20px;
+  text-align:justify;
+  transition: all 0.5s ease-in-out;
+}
+.experience .col1 .card:hover{
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px);
+}
+.experience .col1 .card .nav-link{
+  color:white;
+  border-right:1px solid #b575c6;
+  font-size: 10px;
+  border-radius: 0;
+}
+@media (max-width: 576px){
+  .experience{
+    height: fit-content;
+    padding: 10px;
+  }
+  .experience .col1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.project{
+  height:100vh;
+  width:100%;
+  background-color: #262124 !important;
+  color: white;
+  text-align: center;
+  padding-top: 100px;
+  align-content: center;
+}
+.project .row h2{
+  font-size: 50px;
+  font-weight: 900;
+}
+.project .row h2 span{
+  color: #b575c6;
+}
+.project .col1 .card{
+  background: none;
+  color: white;
+  text-align: justify;
+  padding: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.project .col1 .card:hover{
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px);
+}
+.project .col1 .card-body{
+  border-left: 3px solid #b575c6;
+}
+.project .col1{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+@media (max-width: 576px){
+  .project{
+    height: fit-content;
+  }
+  .project .col1{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.contact{
+  height: 100vh;
+  width: 100%;
+  background-color: #262124;
+  color: white;
+  padding-top: 100px;
+}
+.contact .row{
+  gap: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+.contact .col1{
+  border-right: 3px solid #b575c6;
+}
+.contact .col1 .card{
+  background: none;
+  color: white;
+  text-align: center;
+  margin: 10px;
+}
+.contact .col2 .form button{
+  border: none;
+  border-radius: 30px;
+  padding: 20px 30px;
+  width: 230px;
+  background-color: #b575c6 !important;
+  transition: all 0.3s ease;
+}
+.contact .col2 .form button:hover{
+  letter-spacing: 1px;
+  word-spacing: 3px;
+}
+@media (max-width: 576px){
+  .contact{
+    height: fit-content;
+  }
+  .contact .col2 {
+    align-items: center;
+    width: 100%;
+  }
+}
+/* About Section */
+
+/* For screens 900px and below */
+@media (max-width: 992px) {
+  .about {
+    padding: 40px;
+    height: auto;
+  }
+  
+  .about .col1 h5 {
+    font-size: 22px;
+  }
+
+  .about .col1 h2 {
+    font-size: 42px;
+  }
+
+  .about .col1 p {
+    font-size: 18px;
+  }
+
+  
+}
+/* Fix for screens less than 420px */
+@media (max-width: 420px) {
+  .about, .experience, .project, .contact {
+    padding-left: 5px;  /* Reducing padding */
+    padding-right: 5px;
+    margin: 0;          /* Remove any default margin */
+    width: 100%;
+  }
+
+  /* Reduce gap, margin and padding in columns */
+  .about .col2, .experience .col1, .project .col1 {
+    gap: 5px;
+    padding: 10px 0;
+  }
+
+  .about .col2 .card, 
+  .project .col1 .card, 
+  .experience .col1 .card {
+    width: 100%; /* Ensure 100% width to prevent overflow */
+    margin: 0;   /* Remove margin that can cause overflow */
+  }
+
+  /* Adjust button and input sizes */
+  button, input {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* If using a flex container, ensure it doesn't overflow */
+  .row, .col, .container {
+    flex-wrap: wrap;
+  }
+
+  /* Adjust the overall layout to fit the screen */
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+
+
+/* For screens 700px and below */
+@media (max-width: 768px) {
+  .about {
+    padding: 30px;
+  }
+
+  .about .col1 h2 {
+    font-size: 36px;
+  }
+
+  .about .col1 p {
+    font-size: 16px;
+  }
+
+  .about .col2 .card {
+    width: 200px !important;
+  }
+}
+
+/* Experience Section */
+
+/* For screens 900px and below */
+@media (max-width: 992px) {
+  .experience {
+    padding-top: 80px;
+    height: auto;
+  }
+  
+  .experience .col1 h2 {
+    font-size: 40px;
+  }
+
+  .experience .row {
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .experience .col1{
+    width: 100%;
+  }
+
+  
+
+  .experience .row .col {
+    margin-bottom: 30px;
+  }
+
+  .experience .row button {
+    width: 220px;
+  }
+}
+
+/* For screens 700px and below */
+@media (max-width: 768px) {
+  .experience .col1 h2 {
+    font-size: 32px;
+  }
+
+  .experience .row button {
+    width: 200px;
+    padding: 15px 20px;
+  }
+}
+
+/* Project Section */
+
+/* For screens 900px and below */
+@media (max-width: 992px) {
+  .project {
+    padding-top: 70px;
+    height: auto;
+  }
+  
+  .project .col1 h2 {
+    font-size: 40px;
+  }
+
+  .project .col1 .project-item {
+    width: 220px;
+    margin-bottom: 20px;
+  }
+}
+
+/* For screens 700px and below */
+@media (max-width: 768px) {
+  .project .col1 h2 {
+    font-size: 32px;
+  }
+
+  .project .col1 .project-item {
+    width: 200px;
+  }
+}
+
+/* Contact Section */
+
+/* For screens 900px and below */
+@media (max-width: 992px) {
+  .contact {
+    padding: 40px;
+    height: auto;
+  }
+  
+  .contact .col1 h2 {
+    font-size: 40px;
+  }
+
+  .contact .col1 .form-group {
+    margin-bottom: 20px;
+  }
+}
+
+/* For screens 700px and below */
+@media (max-width: 768px) {
+  .contact .col1 h2 {
+    font-size: 32px;
+  }
+
+  .contact .col1 .form-group input,
+  .contact .col1 .form-group textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+.footer{
+  background-color: black;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 10px;
 }
